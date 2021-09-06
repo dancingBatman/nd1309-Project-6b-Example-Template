@@ -17,7 +17,7 @@ contract SupplyChain is
     RetailerRole
 {
     // Define 'owner'
-    address itemOwner;
+    address accountOwner;
 
     // Define a variable called 'upc' for Universal Product Code (UPC)
     uint256 upc;
@@ -165,10 +165,6 @@ contract SupplyChain is
         }
     }
 
-    function fetchSku() public view returns (string sku) {
-        return (string(sku));
-    }
-
     // Define a function 'harvestItem' that allows a farmer to mark an item 'Harvested'
     function harvestItem(
         uint256 _upc,
@@ -183,6 +179,7 @@ contract SupplyChain is
         Item memory it;
         it.upc = _upc;
         it.sku = sku;
+        it.productID = _upc + sku;
         it.ownerID = _originFarmerID;
         it.originFarmerID = _originFarmerID;
         it.originFarmName = _originFarmName;
@@ -220,7 +217,8 @@ contract SupplyChain is
         onlyFarmer
     {
         // Update the appropriate fields
-        items[_upc].itemState = State.Sold;
+        items[_upc].itemState = State.ForSale;
+        items[_upc].productPrice = _price;
         // Emit the appropriate event
         emit ForSale(_upc);
     }
@@ -270,6 +268,7 @@ contract SupplyChain is
     // Use the above modifiers to check if the item is received
     function purchaseItem(uint256 _upc)
         public
+        payable
         received(_upc)
         paidEnough(_upc)
         checkValue(_upc)
