@@ -6,6 +6,11 @@ This repo contains code associated with Supply chain Udacity project
 
 All the UML diagramms are in project-6/uml/ folder.
 
+## versions used
+
+Truffle v4.1.14 (core: 4.1.14)
+Solidity v0.4.24 (solc-js)
+web3: 1.2.1
 
 ## Libraries
 
