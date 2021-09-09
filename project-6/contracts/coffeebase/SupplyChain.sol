@@ -153,7 +153,6 @@ contract SupplyChain is
     // and set 'sku' to 1
     // and set 'upc' to 1
     constructor() public payable {
-        Ownable(msg.sender);
         sku = 1;
         upc = 1;
     }
@@ -187,6 +186,7 @@ contract SupplyChain is
         it.originFarmLatitude = _originFarmLatitude;
         it.originFarmLongitude = _originFarmLongitude;
         it.productNotes = _productNotes;
+        it.itemState = State.Harvested;
         items[_upc] = it;
 
         sku = sku + 1; // Increment sku
@@ -269,10 +269,10 @@ contract SupplyChain is
     function purchaseItem(uint256 _upc)
         public
         payable
-        received(_upc)
-        paidEnough(_upc)
-        checkValue(_upc)
         onlyConsumer
+        paidEnough(_upc)
+        received(_upc)
+        checkValue(_upc)
     {
         // Update the appropriate fields - ownerID, consumerID, itemState
         items[_upc].ownerID = msg.sender;

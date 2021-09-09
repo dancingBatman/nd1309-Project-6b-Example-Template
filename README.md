@@ -1,112 +1,46 @@
-# Supply chain & data auditing
+# Supply chain project
 
-This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
+This repo contains code associated with Supply chain Udacity project
 
-The DApp User Interface when running should look like...
+## UML diagramms
 
-![truffle test](images/ftc_product_overview.png)
-
-![truffle test](images/ftc_farm_details.png)
-
-![truffle test](images/ftc_product_details.png)
-
-![truffle test](images/ftc_transaction_history.png)
+All the UML diagramms are in project-6/uml/ folder.
 
 
-## Getting Started
+## Libraries
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+I had to install hdwallet-provider to be able to deploy to rinkeby testnet
 
-### Prerequisites
+* `"truffle-hdwallet-provider": "truffle-hdwallet-provider@1.0.17"`
 
-Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
+### Running the project locally
 
-```
-Give examples (to be clarified)
-```
+1. navigate into the project-6 folder
+1. Install dependencies by navigating by running `npm install`
+1. Start the Ganache CLI
+1. Compile the contracts using `truffle compile`
+1. Deploy the contracts using `truffle migrate`
+1. Run the command `npm run dev`
+1. The site will be pulled up using `http://localhost:3000/`
 
-### Installing
+# Rinkeby testnet deployment
+tx: 0x277d23c2220117c6e59d3b05c1987bc179a64217f9226541063bab34b4b3a24a
+contract address: 0x1b4B44a8d17A7B51B88c015Aa140296a90c3c1ae
 
-> The starter code is written for **Solidity v0.4.24**. At the time of writing, the current Truffle v5 comes with Solidity v0.5 that requires function *mutability* and *visibility* to be specified (please refer to Solidity [documentation](https://docs.soliditylang.org/en/v0.5.0/050-breaking-changes.html) for more details). To use this starter code, please run `npm i -g truffle@4.1.14` to install Truffle v4 with Solidity v0.4.24. 
+harvest - 0x1ab2ef242a971f940642c89a95a16a7bfca7d98784cbfee051d8bd1244cfb221
+process - 0x126ca30d71061f7c31c48f280ab4a3102b692bfd5d2193be44adcc9595c664f4
+Pack - 0x815963c2577da43987319c73f96280e51a9a22729ca2f709dcfb52f26c725ab8
+ForSale - 0x795bd0163f4094ac62bf3106b50989f725f6ae4339827d80ad7df00dff7c3c9e
+Sold - 0xf156b1a9eb8b48dce576c3b88df83c2760354dba92b20455a77cba8552d5b787
+Shipped - 0x1efdf2c4bdcc6efb64788c5426e7642e716247fafe17cc4c2346738dd3674a46
+Received - 0x67cb687a983472ea36530f8126022285409a7e11037e795f5cee86548ed9b819
+Purchased - 0xf23c1fe0d1fe6afabc29cd39816abe9f10b91d6cd68f06ded5b0a6e222a949c5
 
-A step by step series of examples that tell you have to get a development env running
+### Using Truffle to test/migrate
 
-Clone this repository:
+You'll need to create a `.secret` file with your rinkeby account private key stored in it
 
-```
-git clone https://github.com/udacity/nd1309/tree/master/course-5/project-6
-```
+## Testing
 
-Change directory to ```project-6``` folder and install all requisite npm packages (as listed in ```package.json```):
-
-```
-cd project-6
-npm install
-```
-
-Launch Ganache:
-
-```
-ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/ganache-cli.png)
-
-In a separate terminal window, Compile smart contracts:
-
-```
-truffle compile
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/truffle_compile.png)
-
-This will create the smart contract artifacts in folder ```build\contracts```.
-
-Migrate smart contracts to the locally running blockchain, ganache-cli:
-
-```
-truffle migrate
-```
-
-Your terminal should look something like this:
-
-![truffle test](images/truffle_migrate.png)
-
-Test smart contracts:
-
-```
-truffle test
-```
-
-All 10 tests should pass.
-
-![truffle test](images/truffle_test.png)
-
-In a separate terminal window, launch the DApp:
-
-```
-npm run dev
-```
-
-## Built With
-
-* [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
-to make the web faster, safer, and more open.
-* [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
-
-
-## Authors
-
-See also the list of [contributors](https://github.com/your/project/contributors.md) who participated in this project.
-
-## Acknowledgments
-
-* Solidity
-* Ganache-cli
-* Truffle
-* IPFS
+Testing works fine and well for all except for account balances checks. Found that there was a bug in gas estimate for ganache version
+so I just left it be.
