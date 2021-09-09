@@ -9,7 +9,9 @@ All the UML diagramms are in project-6/uml/ folder.
 ## versions used
 
 Truffle v4.1.14 (core: 4.1.14)
+
 Solidity v0.4.24 (solc-js)
+
 web3: 1.2.1
 
 ## Libraries
@@ -29,8 +31,11 @@ I had to install hdwallet-provider to be able to deploy to rinkeby testnet
 1. The site will be pulled up using `http://localhost:3000/`
 
 # Rinkeby testnet deployment
-tx: 0x277d23c2220117c6e59d3b05c1987bc179a64217f9226541063bab34b4b3a24a
-contract address: 0x1b4B44a8d17A7B51B88c015Aa140296a90c3c1ae
+tx - 0x277d23c2220117c6e59d3b05c1987bc179a64217f9226541063bab34b4b3a24a
+
+contract address - 0x1b4B44a8d17A7B51B88c015Aa140296a90c3c1ae
+
+link: https://rinkeby.etherscan.io/address/0x1b4b44a8d17a7b51b88c015aa140296a90c3c1ae
 
 harvest - 0x1ab2ef242a971f940642c89a95a16a7bfca7d98784cbfee051d8bd1244cfb221
 process - 0x126ca30d71061f7c31c48f280ab4a3102b692bfd5d2193be44adcc9595c664f4
