@@ -16,9 +16,23 @@ web3: 1.2.1
 
 ## Libraries
 
-I had to install hdwallet-provider to be able to deploy to rinkeby testnet
+Following libraries were used
 
-* `"truffle-hdwallet-provider": "truffle-hdwallet-provider@1.0.17"`
+* `truffle` - truffle the most popular development framework for Ethereum, which simplifies testing and deployment
+
+* `web3` - library to communicate with ethereum blockchain
+
+* `"truffle-hdwallet-provider": "truffle-hdwallet-provider@1.0.17"` - to be ably to deploy smart contract on testnet
+
+### Running the project locally
+
+1. Navigate into the project-6 folder in terminal
+1. Install dependencies using `npm install`
+1. Start the Ganache CLI, the newtork will be listening on `http://localhost:8545/`
+1. Compile the contracts `truffle compile`
+1. Deploy the contracts `truffle migrate`
+1. Open front end application using `npm run dev`, site will be opened at `http://localhost:3000/`
+1. Profit
 
 # Rinkeby testnet deployment
 tx - 0x277d23c2220117c6e59d3b05c1987bc179a64217f9226541063bab34b4b3a24a
